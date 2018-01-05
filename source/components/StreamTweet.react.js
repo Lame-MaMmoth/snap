@@ -36,6 +36,31 @@ var React = requre('react'),
             window.snapterest.tweetHtml = componentDOMRepresentation.children[1].outerHTML;
         },
 
+        componentWillReceiveProps: function (nextProps) {
+            console.log('[Snapterest] StreamTweet: 4. Running componentWillReceiveProps()');
+
+            var currentTweetLength = this.props.tweet.text.length,
+                nextTweetLength = nextProps.tweet.text.length,
+                isNumberOfCharactersIncreasing = (nextTweetLength > currentTweetLength),
+                headerText;
+
+            this.setState({
+                numberOfCharactersIsIncreasing: isNumberOfCharactersIncreasing
+            });
+
+            if (isNumberOfCharactersIncreasing) {
+                headerText = 'Number of characters is increasing';
+            } else {
+                headerText = 'Latest public photo from Twitter';
+            }
+
+            this.setState({
+                headerText: headerText
+            });
+
+            window.snapterest.numberOfReceivedTweets++;
+        },
+
         componentWillUnmount: function () {
             console.log('[Snapterest] StreamTweet: 8, Running componentWillUnmount()');
 
