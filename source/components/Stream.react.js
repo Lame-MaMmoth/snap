@@ -1,4 +1,4 @@
-var React = require('react').
+var React = require('react'),
     SnapkiteStreamClient = require('snapkite-stream-client'),
     StreamTweet = require('./StreamTweet.react'),
     Header = require('./Header.react'),
@@ -40,4 +40,4 @@ var React = require('react').
         }
     });
 
-module.export = Stream;
+module.exports = Stream;

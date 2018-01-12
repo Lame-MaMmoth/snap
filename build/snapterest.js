@@ -29727,7 +29727,8 @@ module.exports = Header;
 },{"react":221}],250:[function(require,module,exports){
 'use strict';
 
-var React = require('react').SnapkiteStreamClient = require('snapkite-stream-client'),
+var React = require('react'),
+    SnapkiteStreamClient = require('snapkite-stream-client'),
     StreamTweet = require('./StreamTweet.react'),
     Header = require('./Header.react'),
     Stream = React.createClass({
@@ -29767,12 +29768,12 @@ var React = require('react').SnapkiteStreamClient = require('snapkite-stream-cli
     }
 });
 
-module.export = Stream;
+module.exports = Stream;
 
 },{"./Header.react":249,"./StreamTweet.react":251,"react":221,"snapkite-stream-client":222}],251:[function(require,module,exports){
 'use strict';
 
-var React = requre('react'),
+var React = require('react'),
     ReactDOM = require('react-dom'),
     Header = require('./Header.react'),
     Tweet = require('./Tweet.react'),
@@ -29870,7 +29871,7 @@ var React = requre('react'),
     }
 });
 
-},{"./Header.react":249,"./Tweet.react":252,"react-dom":60}],252:[function(require,module,exports){
+},{"./Header.react":249,"./Tweet.react":252,"react":221,"react-dom":60}],252:[function(require,module,exports){
 'use strict';
 
 var React = require('react'),

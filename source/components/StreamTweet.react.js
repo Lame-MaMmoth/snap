@@ -1,4 +1,4 @@
-var React = requre('react'),
+var React = require('react'),
     ReactDOM = require('react-dom'),
     Header = require('./Header.react'),
     Tweet = require('./Tweet.react'),
