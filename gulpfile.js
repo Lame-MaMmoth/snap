@@ -5,7 +5,7 @@ var gulp = require('gulp'),
 
 gulp.task('default', function () {
     return browserify('./source/app.js')
-        .transform(babelify)
+        .transform(babelify.configure({ presets: ["es2015", "react"] }))
         .bundle()
         .pipe(source('snapterest.js'))
         .pipe(gulp.dest('./build/'));
