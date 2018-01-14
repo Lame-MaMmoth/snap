@@ -16,7 +16,7 @@ var React = require('react'),
         componentWillMount: function () {
             console.log('[Snapterest] StreamTweet: 2. Running componentWillMount()');
 
-            this.setStatus({
+            this.setState({
                 numberOfCharactersIsIncreasing: true,
                 headerText: 'Latest public photo from Twitter'
             });
@@ -94,3 +94,5 @@ var React = require('react'),
             );
         }
     });
+
+module.exports = StreamTweet;

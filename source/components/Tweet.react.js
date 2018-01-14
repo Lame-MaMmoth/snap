@@ -44,7 +44,7 @@ var React = require('react'),
 
             return (
                 <div style={tweetStyle}>
-                    <img src={tweetMediaUrl} onclick={this.handleImageClick} style={imageStyle}/>
+                    <img src={tweetMediaUrl} onClick={this.handleImageClick} style={imageStyle}/>
                 </div>
             );
         }

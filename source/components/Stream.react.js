@@ -1,5 +1,6 @@
 var React = require('react'),
-    SnapkiteStreamClient = require('snapkite-stream-client'),
+ // SnapkiteStreamClient = require('snapkite-stream-client'),
+    SnapkiteStreamClient = require('./mockTweets'),
     StreamTweet = require('./StreamTweet.react'),
     Header = require('./Header.react'),
 
