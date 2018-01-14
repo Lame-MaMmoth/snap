@@ -36,7 +36,7 @@ var React = require('react'),
         },
 
         setCollectionName: function (name) {
-            this.setStatus({
+            this.setState({
                 name: name,
                 isEditingName: false
             });
