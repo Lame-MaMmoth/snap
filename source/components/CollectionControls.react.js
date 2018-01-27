@@ -3,28 +3,26 @@ var React = require('react'),
     Button = require('./Button.react'),
     CollectionRenameForm = require('./CollectionRenameForm.react'),
     CollectionExportForm = require('./CollectionExportForm.react'),
+    CollectionActionCreators = require('../actions/CollectionActionCreators'),
+    CollectionStore = require('../stores/CollectionStore');
 
-    CollectionControls = React.createClass({
+var CollectionControls = React.createClass({
         getInitialState: function () {
             return {
-                name: 'new',
                 isEditingName: false
             };
         },
 
         getHeaderText: function () {
             var numberOfTweetsInCollection = this.props.numberOfTweetsInCollection,
-                text = numberOfTweetsInCollection;
+                text = numberOfTweetsInCollection,
+                name = CollectionStore.getCollectionName();
 
-            if (numberOfTweetsInCollection === 1) {
-                text = text + ' tweet in your';
-            } else {
-                text = text + ' tweets in your'
-            }
+            text += ' '+ (numberOfTweetsInCollection === 1 ? 'tweet' : 'tweets') +' in your';
 
             return (
                 <span>
-                    {text} <strong>{this.state.name}</strong> collection
+                    {text} <strong>{name}</strong> collection
                 </span>
             );
         },
@@ -35,21 +33,14 @@ var React = require('react'),
             });
         },
 
-        setCollectionName: function (name) {
-            this.setState({
-                name: name,
-                isEditingName: false
-            });
+        removeAllTweetsFromCollection: function () {
+            CollectionActionCreators.removeAllTweetsFromCollection();
         },
 
         render: function () {
             if (this.state.isEditingName) {
                 return (
-                    <CollectionRenameForm
-                        name={this.state.name}
-                        onChangeCollectionName={this.setCollectionName}
-                        onCancelCollectionNameChange={this.toggleEditCollectionName}
-                    />
+                    <CollectionRenameForm onCancelCollectionNameChange={this.toggleEditCollectionName} />
                 );
             }
 
@@ -64,7 +55,7 @@ var React = require('react'),
 
                     <Button
                         label="Empty collection"
-                        handleClick={this.props.onRemoveAllTweetsFromCollection}
+                        handleClick={this.removeAllTweetsFromCollection}
                     />
 
                     <CollectionExportForm htmlMarkup={this.props.htmlMarkup} />
