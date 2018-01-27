@@ -22,7 +22,6 @@ var Collection = React.createClass({
         },
 
         onCollectionChange: function () {
-            console.log('KARAMBAA! onCollectionChange()');
             this.setState({
                 collectionTweets: CollectionStore.getCollectionTweets()
             });
